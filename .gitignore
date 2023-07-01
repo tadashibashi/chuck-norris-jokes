@@ -7,3 +7,4 @@ dist/
 .vs/
 .idea/
 
+node_modules/
