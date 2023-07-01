@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background: url("/images/chuck-norris-bg.jpg");
+    background-blend-mode: multiply;
+    background-color: #212121;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: antiquewhite;
+    font-size: 8vmin;
+}
+
+#joke-quote {
+    text-align: center;
+    color: antiquewhite;
+    font-style: italic;
+    font-size: min(6vmin, 2rem);
+
+    padding: 0 10vmin;
+}
+
+#joke-button {
+    display: block;
+    margin: 0 auto;
+    font-size: 4vmin;
+}
+
+label {
+    color: #494949;
+}
+select {
+    font-size: min(6vmin, 2rem);
+}
