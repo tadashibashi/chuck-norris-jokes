@@ -4,12 +4,11 @@ import morgan from "morgan";
 
 const app = express();
 
-
-// init ejs
+// template engine: ejs
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-// init middleware
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("dev"));
@@ -20,7 +19,7 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
-// joke handler
+// joke api route
 app.get("/api/random", async (req, res) => {
     try {
         const category = req.query["category"];
@@ -36,7 +35,7 @@ app.get("/api/random", async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT,() => {
      console.log("App listening at: http://localhost:" + PORT);
 });
