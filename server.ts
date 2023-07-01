@@ -21,18 +21,13 @@ app.get("/", (req, res) => {
 
 // joke api route
 app.get("/api/random", async (req, res) => {
-    try {
-        const category = req.query["category"];
-        const data = await fetch("https://api.chucknorris.io/jokes/random" +
-            (category ? "?category=" + category : ""))
-            .then(data => data.json());
-
-        res.json(data);
-    } catch(err) {
-        res.json({
-            error: "api.chucknorris.io/jokes error"
-        });
-    }
+    const category = req.query["category"];
+    const data = await fetch("https://api.chucknorris.io/jokes/random" +
+        (category ? "?category=" + category : ""))
+        .then(data => data.json())
+        .catch(error => res.json({error}))
+        .then(data => res.json(data))
+        .catch(error => res.json({error}));
 });
 
 const PORT = process.env.PORT || 3000;
